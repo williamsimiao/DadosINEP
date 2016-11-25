@@ -28,13 +28,7 @@ public class Main {
 		em.getTransaction().begin();
 		//criando novo aluno
 		Aluno novo = new Aluno();
-		novo.setCategoria_administrativa(0);
-		novo.setGrau_academico(1);
-		novo.setModalidades_de_ensino(2);
-		novo.setNivel_academico(3);
-		novo.setOrganizacao_academica(4);
-		novo.setRaca_do_aluno(5);
-		novo.setSexo_do_aluno(6);
+		novo.setCo_aluno(23);
 		em.persist(novo);
 		em.getTransaction().commit();
 		em.close();
