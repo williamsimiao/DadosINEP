@@ -21,11 +21,8 @@ public class Tab_local_oferta {
 	@ManyToOne
 	private Tab_ies co_ies;
 	
-	public Tab_local_oferta(int co_local_oferta_ies, String no_local_oferta, String sgl_uf_local, Tab_ies co_ies) {
+	public Tab_local_oferta(int co_local_oferta_ies) {
 		super();
 		this.co_local_oferta_ies = co_local_oferta_ies;
-		this.no_local_oferta = no_local_oferta;
-		this.sgl_uf_local = sgl_uf_local;
-		this.co_ies = co_ies;
 	}
 }
