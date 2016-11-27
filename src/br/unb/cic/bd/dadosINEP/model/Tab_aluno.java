@@ -1,6 +1,8 @@
 package br.unb.cic.bd.dadosINEP.model;
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,16 +24,45 @@ public class Tab_aluno {
 	//as tres chaves PKs estao nessa classe
 	private AlunoPK alunoPK;
 	@ManyToOne
-	private Tab_turno_aluno co_turno_aluno;
+    @JoinColumn(name = "co_ies", referencedColumnName = "co_ies")
+	Tab_ies ies;
+	//
 	@ManyToOne
-	private Tab_cor_raca co_cor_raca_aluno;
+    @JoinColumn(name = "co_curso", referencedColumnName = "co_curso")
+	Tab_curso curso;
+	
+	@Column(name = "co_turno_aluno")
+	private int co_turno_aluno;
 	@ManyToOne
-	private Tab_sexo co_sexo_aluno;
+    @JoinColumn(name="co_turno_aluno",referencedColumnName="co_turno_aluno")
+	private Tab_turno_aluno turno_aluno;
+	//
+	@Column(name = "co_cor_raca_aluno")
+	private int co_cor_raca_aluno;
+	@ManyToOne
+    @JoinColumn(name="co_cor_raca_aluno",referencedColumnName="co_cor_raca")
+	private Tab_cor_raca cor_raca_aluno;
+	//
+	@Column(name = "co_sexo_aluno")
+	private int co_sexo_aluno;
+	@ManyToOne
+    @JoinColumn(name="co_sexo_aluno",referencedColumnName="in_sexo")
+	private Tab_sexo sexo_aluno;
+	//
 	private int nu_idade_aluno;
+	//
+	@Column(name = "co_nacionalidade_aluno")
+	private int co_nacionalidade_aluno;
 	@ManyToOne
-	private Tab_nacionalidade co_nacionalidade_aluno;
+    @JoinColumn(name="co_nacionalidade_aluno",referencedColumnName="co_nacionalidade")
+	private Tab_nacionalidade nacionalidade_aluno;
+	//
+	@Column(name = "co_aluno_situacao")
+	private int co_aluno_situacao;
 	@ManyToOne
-	private Tab_aluno_situacao co_aluno_situacao;
+    @JoinColumn(name="co_aluno_situacao",referencedColumnName="co_aluno_situacao")
+	private Tab_aluno_situacao aluno_situacao;
+	//
 	private int in_aluno_def_tgd_super;
 	private int in_reserva_etnico;
 	private int in_reserva_deficincia;

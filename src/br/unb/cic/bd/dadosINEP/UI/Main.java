@@ -6,11 +6,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import br.unb.cic.bd.dadosINEP.model.Aluno;
-import br.unb.cic.bd.dadosINEP.model.Curso;
-import br.unb.cic.bd.dadosINEP.model.Docente;
-import br.unb.cic.bd.dadosINEP.model.Ies;
-import br.unb.cic.bd.dadosINEP.model.Local_oferta;
+import br.unb.cic.bd.dadosINEP.chavesPrimarias.AlunoPK;
+import br.unb.cic.bd.dadosINEP.model.Tab_aluno;
+import br.unb.cic.bd.dadosINEP.model.Tab_curso;
+import br.unb.cic.bd.dadosINEP.model.Tab_ies;
 
 public class Main {
 	private static final String PERSISTENCE_UNIT_NAME = "INEP";
@@ -23,32 +22,24 @@ public class Main {
 		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = factory.createEntityManager();
 		Query q = em.createQuery("select a from Aluno a");
-		List<Aluno> alunos = q.getResultList();
-		for(Aluno aluno : alunos){
+		List<Tab_aluno> alunos = q.getResultList();
+		for(Tab_aluno aluno : alunos){
 			System.out.println(aluno);
 		}
 		System.out.println("Size:" + alunos.size());
 		
 		em.getTransaction().begin();
-		//criando novo aluno
-		Aluno novo = new Aluno();
-		novo.setCo_aluno(23);
-		em.persist(novo);
-		//
-		Curso curso = new Curso();
-		em.persist(curso);
-		//
-		Docente docente = new Docente();
-		em.persist(docente);
-		//
-		Local_oferta local_oferta = new Local_oferta();
-		em.persist(local_oferta);
-		//
-		Ies ies = new Ies();
+		//Ies
+		Tab_ies ies = new Tab_ies(32);
 		em.persist(ies);
-		//
-
-
+		//curso
+		Tab_curso curso = new Tab_curso(23);
+		em.persist(curso);
+	
+		//criando PK aluno
+		AlunoPK alunoPK = new AlunoPK(1, 23, 32);
+		Tab_aluno aluno = new Tab_aluno(alunoPK);
+		em.persist(aluno);
 
 		em.getTransaction().commit();
 		em.close();

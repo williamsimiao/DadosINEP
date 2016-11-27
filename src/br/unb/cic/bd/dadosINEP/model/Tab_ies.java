@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_categoria_administrativa;
@@ -20,8 +22,14 @@ public class Tab_ies {
 	@Id
 	private int co_ies;
 	private String no_ies;
+	@ManyToOne
+    @JoinColumn(name="co_mantenedora",referencedColumnName="co_mantenedora")
 	private Tab_mantenedora co_mantenedora;
+	@ManyToOne
+    @JoinColumn(name="co_categoria_administrativa",referencedColumnName="co_categoria_administrativa")
 	private Tab_categoria_administrativa co_categoria_administrativa;
+	@ManyToOne
+    @JoinColumn(name="co_organizacao_academica",referencedColumnName="co_organizacao_academica")
 	private Tab_organizacao_academica co_organizacao_academica;
 	private String sgl_uf_ies;
 	private int qt_tec_total;

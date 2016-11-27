@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,6 +20,7 @@ public class Tab_local_oferta {
 	private String no_local_oferta;
 	private String sgl_uf_local;
 	@ManyToOne
+    @JoinColumn(name="co_ies",referencedColumnName="co_ies")
 	private Tab_ies co_ies;
 	
 	public Tab_local_oferta(int co_local_oferta_ies) {
