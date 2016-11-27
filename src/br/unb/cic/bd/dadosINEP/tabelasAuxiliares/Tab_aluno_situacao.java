@@ -1,4 +1,4 @@
-package br.unb.cic.dadosINEP.tabelasAuxiliares;
+package br.unb.cic.bd.dadosINEP.tabelasAuxiliares;
 
 import java.security.spec.DSAGenParameterSpec;
 

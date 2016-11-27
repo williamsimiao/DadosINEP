@@ -8,9 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_categoria_administrativa;
-import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_mantenedora;
-import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_organizacao_academica;
+import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_categoria_administrativa;
+import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_mantenedora;
+import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_organizacao_academica;
 import lombok.Data;
 import lombok.ToString;
 

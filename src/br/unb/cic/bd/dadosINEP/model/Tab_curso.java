@@ -7,9 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_grau_academico;
-import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_modalidade_ensino;
-import br.unb.cic.dadosINEP.tabelasAuxiliares.Tab_nivel_academico;
+import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_grau_academico;
+import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_modalidade_ensino;
+import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_nivel_academico;
 import lombok.Data;
 
 @Entity
