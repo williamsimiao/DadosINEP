@@ -4,6 +4,11 @@
         version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
         <persistence-unit name="INEP" transaction-type="RESOURCE_LOCAL">
                 <class>br.unb.cic.bd.dadosINEP.model.Aluno</class>
+                <class>br.unb.cic.bd.dadosINEP.model.Curso</class>
+                <class>br.unb.cic.bd.dadosINEP.model.Docente</class>
+                <class>br.unb.cic.bd.dadosINEP.model.Local_oferta</class>
+                <class>br.unb.cic.bd.dadosINEP.model.Ies</class>
+                
  <properties>
   <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
   <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/INEP" />

@@ -7,6 +7,10 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.unb.cic.bd.dadosINEP.model.Aluno;
+import br.unb.cic.bd.dadosINEP.model.Curso;
+import br.unb.cic.bd.dadosINEP.model.Docente;
+import br.unb.cic.bd.dadosINEP.model.Ies;
+import br.unb.cic.bd.dadosINEP.model.Local_oferta;
 
 public class Main {
 	private static final String PERSISTENCE_UNIT_NAME = "INEP";
@@ -30,6 +34,22 @@ public class Main {
 		Aluno novo = new Aluno();
 		novo.setCo_aluno(23);
 		em.persist(novo);
+		//
+		Curso curso = new Curso();
+		em.persist(curso);
+		//
+		Docente docente = new Docente();
+		em.persist(docente);
+		//
+		Local_oferta local_oferta = new Local_oferta();
+		em.persist(local_oferta);
+		//
+		Ies ies = new Ies();
+		em.persist(ies);
+		//
+
+
+
 		em.getTransaction().commit();
 		em.close();
 		
