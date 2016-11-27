@@ -45,8 +45,9 @@ public class Tab_aluno {
 	//
 	@Column(name = "co_sexo_aluno")
 	private int co_sexo_aluno;
+	
 	@ManyToOne
-    @JoinColumn(name="co_sexo_aluno",referencedColumnName="in_sexo")
+    @JoinColumn(name="in_sexo_aluno",referencedColumnName="in_sexo")
 	private Tab_sexo sexo_aluno;
 	//
 	private int nu_idade_aluno;

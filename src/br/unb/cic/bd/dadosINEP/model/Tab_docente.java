@@ -41,8 +41,8 @@ public class Tab_docente {
     @JoinColumn(name="co_regime_trabalho",referencedColumnName="co_regime_trabalho")
 	private Tab_regime_trabalho co_regime_trabalho;
 	@ManyToOne
-    @JoinColumn(name="co_sexo_docente",referencedColumnName="in_sexo")
-	private Tab_sexo co_sexo_docente;
+    @JoinColumn(name="in_sexo_docente",referencedColumnName="in_sexo")
+	private Tab_sexo sexo_docente;
 	@ManyToOne
     @JoinColumn(name="co_cor_raca_docente",referencedColumnName="co_cor_raca")
 	private Tab_cor_raca co_cor_raca_docente;
