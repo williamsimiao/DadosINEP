@@ -44,17 +44,17 @@ public class CursoDAO {
               return entityManager.createQuery("FROM " + Tab_aluno.class.getName()).getResultList();
     }
     
-    public void persist(Tab_curso aluno) {
+    public void persist(Tab_curso curso) {
         try {
                  entityManager.getTransaction().begin();
-                 entityManager.persist(aluno);
+                 entityManager.persist(curso);
                  entityManager.getTransaction().commit();
         } catch (EntityExistsException e) {
 			System.out.println("Já existe um elemento com esta pk");
 		} catch (Exception ex) {
 			if(!ex.getClass().isInstance(EntityExistsException.class)) {
 			}
-            entityManager.getTransaction().rollback();
+//            entityManager.getTransaction().rollback();
 		}
     }
     

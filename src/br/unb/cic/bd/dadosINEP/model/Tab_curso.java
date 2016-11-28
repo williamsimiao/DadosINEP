@@ -1,5 +1,6 @@
 package br.unb.cic.bd.dadosINEP.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,18 +26,18 @@ public class Tab_curso {
 
 	@Id
 	private int co_curso;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Tab_ies co_ies;
 	private String sgl_uf_curso;
 	private String no_curso;
 	private String ocde;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Tab_grau_academico co_grau_acad;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Tab_modalidade_ensino co_modalidade_ensino;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Tab_nivel_academico co_nivel_acad;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Tab_local_oferta co_local_oferta;
 	private int in_gratuito;
 	private int nu_carga_horaria;

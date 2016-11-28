@@ -85,13 +85,12 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{
-			String query = "Select count(ies) from Tab_aluno a JOIN Tab_ies ies ON a.co_ies = ies.co_ies "
-					+ "AND ies.no_ies = " +  "'" + no_ies + "'";
-			Query qNativeQuery = em.createNativeQuery(query);
-			System.out.println(query);
+			String querySring = "Select count(ies) from Tab_aluno a JOIN Tab_ies ies ON a.co_ies = ies.co_ies AND ies.no_ies = 'unb'";
+			//precisa do NAtive, se nao, da erro sintatico
+			Query qNativeQuery = em.createNativeQuery(querySring);
+			System.out.println(querySring);
 //			Query q = em.createQuery(query);
-			System.out.println("Total de alunos neste IES: "+ (long)qNativeQuery.getFirstResult());
-			System.out.println(query);
+			System.out.println("Total de alunos neste IES: "+ qNativeQuery.getSingleResult());
 
 		} catch (Exception e) {
 			System.out.println("Deu erro");
@@ -119,14 +118,13 @@ public class Menu {
 			//nome das tabelas apos o JOIN ="b"
 			String query = "Select count(cur) from Tab_curso cur";
 			System.out.println(query);
-			Query qtotal = em.createQuery(query);
+			Query qtotal = em.createNativeQuery(query);
 			
-			query = "Select count(b) from Tab_curso cur JOIN Tab_modalidade_ensino b"
-		+" where b.ds_modalidade_ensino = 'Curso a distância'";
+			query = "SELECT count(co_curso) FROM tab_curso NATURAL JOIN tab_modalidade_ensino WHERE ds_modalidade_ensino = 'EAD';";
 			System.out.println(query);
-			Query qdistancia = em.createQuery(query);
+			Query qdistancia = em.createNativeQuery(query);
 			System.out.println("total = "+ (long)qtotal.getSingleResult());
-			System.out.println("ead = "+ (long)qdistancia.getSingleResult());
+			System.out.println("ead = "+ qdistancia.getSingleResult());
 
 			float razao = (long)qdistancia.getSingleResult()/(long)qtotal.getSingleResult();
 			System.out.println("Porcentagem de cursos a distancia é: " + razao);
