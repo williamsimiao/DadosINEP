@@ -84,7 +84,9 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{
-			Query q = em.createQuery("Select count(ies) from Tab_ies ies where ies.no_ies = " +  "'" + no_ies + "'");
+			String query = "Select count(ies) from Tab_ies ies where ies.no_ies = " +  "'" + no_ies + "'";
+			System.out.println(query);
+			Query q = em.createQuery(query);
 			System.out.println("Total de alunos neste IES: "+ (long)q.getSingleResult());
 		} catch (Exception e) {
 			System.out.println("Deu erro");
@@ -110,17 +112,23 @@ public class Menu {
 	private void terceiraQuery(){
 		try{
 			//nome das tabelas apos o JOIN ="b"
-			Query qtotal = em.createQuery("Select count(cur) from Tab_curso cur");
-			Query qdistancia = em.createQuery("Select count(b) from Tab_curso cur JOIN Tab_modalidade_ensino b"
-		+" where b.ds_modalidade_ensino = :modalidade");
-			qdistancia.setParameter("modalidade", "Curso a distancia");
+			String query = "Select count(cur) from Tab_curso cur";
+			System.out.println(query);
+			Query qtotal = em.createQuery(query);
+			
+			query = "Select count(b) from Tab_curso cur JOIN Tab_modalidade_ensino b"
+		+" where b.ds_modalidade_ensino = 'Curso a distancia'";
+			System.out.println(query);
+			Query qdistancia = em.createQuery(query);
+			System.out.println("total = "+ (long)qtotal.getSingleResult());
+			System.out.println("ead = "+ (long)qdistancia.getSingleResult());
+
 			float razao = (long)qdistancia.getSingleResult()/(long)qtotal.getSingleResult();
 			System.out.println("Porcentagem de cursos a distancia é: " + razao);
 		} catch (Exception e) {
 			System.out.println("Deu erro");
 			e.printStackTrace();
 		}
-		
 	}
 	
 	private void quartaQuery(){
@@ -128,21 +136,27 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{			
-			Query q = em.createQuery("Select ies.qt_tec_total from Tab_ies ies ");
+			Query q = em.createQuery("Select ies.qt_tec_total from Tab_ies ies");
 			System.out.println("Número de tecnicos : " + q.getSingleResult());
 			//
-			Query q2 = em.createQuery("Select ies.qt_tec_fund_incomp_fem from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			String query = "Select ies.qt_tec_fund_incomp_fem from Tab_ies ies "
+					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			System.out.println(query);
+			Query q2 = em.createQuery(query);
 			System.out.println("Número de tecnicos do sexo feminino com o nivel fundamnetal completo: "
 					+ q.getSingleResult());
 			//
-			Query q3 = em.createQuery("Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
+					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			System.out.println(query);
+			Query q3 = em.createQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel fundamnetal completo: "
 					+ q.getSingleResult());
 			//
-			Query q4 = em.createQuery("Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
+					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			System.out.println(query);
+			Query q4 = em.createQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel fundamnetal incompleto: "
 					+ q.getSingleResult());
 			//
@@ -192,24 +206,23 @@ public class Menu {
 			System.out.println("Deu erro");
 			e.printStackTrace();
 		}
-		
 	}
 	private void quintaQuery(){
 		System.out.println("Escolha um ies ");
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{
-			Query q = em.createQuery("Select ies.vl_des_pesquisa from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			String query = "Select ies.vl_des_pesquisa from Tab_ies ies "
+					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			System.out.println(query);
+
+			Query q = em.createQuery(query);
 			System.out.println("Numero de tecnicos do sexo feminino com o nivel fundamnetal incompleto: "
 					+ (long)q.getSingleResult());
 		} catch (Exception e) {
 			System.out.println("Deu erro");
 			e.printStackTrace();
-		}
-		
-		
-		
+		}	
 	}
 
 
