@@ -139,69 +139,66 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{			
-			Query q = em.createQuery("Select ies.qt_tec_total from Tab_ies ies " 
-			+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			
+			//total
+			Query q = em.createNativeQuery("SELECT qt_tec_total FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número total de tecnicos : " + q.getFirstResult());
 			//
-			String query = "Select ies.qt_tec_fund_incomp_fem from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			String query = "SELECT qt_tec_fund_incomp_fem FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
 			System.out.println(query);
-			Query q2 = em.createQuery(query);
+			Query q2 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo feminino com o nivel fundamnetal completo: "
 					+ q.getFirstResult());
 			//
-			query = "Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			query = "SELECT qt_tec_fund_incomp_masc FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
 			System.out.println(query);
-			Query q3 = em.createQuery(query);
+			Query q3 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel fundamnetal completo: "
 					+ q.getFirstResult());
 			//
-			query = "Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
+			query = "SELECT qt_tec_fund_incomp_masc FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
 			System.out.println(query);
-			Query q4 = em.createQuery(query);
+			Query q4 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel fundamnetal incompleto: "
 					+ q.getFirstResult());
 			//
-			Query q5 = em.createQuery("Select ies.qt_tec_medio_fem from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "SELECT qt_tec_medio_fem FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q5 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo feminido com o nivel medio completo: "
 					+ q.getFirstResult());
 			//
-			Query q6 = em.createQuery("Select ies.qt_tec_medio_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "SELECT qt_tec_medio_masc FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q6 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel medio completo: "
 					+ q.getFirstResult());
 			//
-			Query q7 = em.createQuery("Select ies.qt_tec_superior_fem from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "SELECT qt_tec_superior_fem FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q7 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo feminino com o nivel superior completo: "
 					+ q.getFirstResult());
 			//
-			Query q8 = em.createQuery("Select ies.qt_tec_superior_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " + "'" + no_ies + "'");
+			query = "SELECT qt_tec_superior_masc FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q8 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel superior completo: "
 					+ q.getFirstResult());
 			//
-			///deixei sem a especializacao
-			Query q9 = em.createQuery("Select ies.qt_tec_mestrado_fem from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +   "'" + no_ies + "'");
+			query = "SELECT qt_tec_mestrado_fem FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q9 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo feminino com o mestrado completo: "
 					+ q.getFirstResult());
 			//
-			Query q10 = em.createQuery("Select ies.qt_tec_mestrado_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "SELECT qt_tec_mestrado_masc FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q10 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o mestrado completo: "
 					+ q.getFirstResult());
 			//
-			Query q11 = em.createQuery("Select ies.qt_tec_doutorado_fem from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "SELECT qt_tec_doutorado_fem FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q11 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo feminino com o doutorado completo: "
 					+ q.getFirstResult());
 			//
-			Query q12 = em.createQuery("Select ies.qt_tec_doutorado_masc from Tab_ies ies "
-					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			query = "SELECT qt_tec_doutorado_masc FROM tab_ies WHERE no_ies = " +  "'" + no_ies + "'";
+			Query q12 = em.createNativeQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o doutorado completo: "
 					+ q.getFirstResult());
 			//
