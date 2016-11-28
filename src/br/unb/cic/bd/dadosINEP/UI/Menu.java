@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.eclipse.persistence.jpa.jpql.parser.WhereClause;
+import org.postgresql.core.NativeQuery;
 
 import br.unb.cic.bd.dadosINEP.model.Tab_aluno;
 import br.unb.cic.bd.dadosINEP.model.Tab_ies;
@@ -84,10 +85,14 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{
-			String query = "Select count(ies) from Tab_aluno a JOIN Tab_ies ies where ies.no_ies = " +  "'" + no_ies + "'";
+			String query = "Select count(ies) from Tab_aluno a JOIN Tab_ies ies ON a.co_ies = ies.co_ies "
+					+ "AND ies.no_ies = " +  "'" + no_ies + "'";
+			Query qNativeQuery = em.createNativeQuery(query);
 			System.out.println(query);
-			Query q = em.createQuery(query);
-			System.out.println("Total de alunos neste IES: "+ (long)q.getSingleResult());
+//			Query q = em.createQuery(query);
+			System.out.println("Total de alunos neste IES: "+ (long)qNativeQuery.getFirstResult());
+			System.out.println(query);
+
 		} catch (Exception e) {
 			System.out.println("Deu erro");
 			e.printStackTrace();
@@ -136,8 +141,9 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{			
-			Query q = em.createQuery("Select ies.qt_tec_total from Tab_ies ies");
-			System.out.println("Número de tecnicos : " + q.getSingleResult());
+			Query q = em.createQuery("Select ies.qt_tec_total from Tab_ies ies " 
+			+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
+			System.out.println("Número total de tecnicos : " + q.getFirstResult());
 			//
 			String query = "Select ies.qt_tec_fund_incomp_fem from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
