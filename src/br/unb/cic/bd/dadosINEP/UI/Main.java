@@ -18,22 +18,9 @@ public class Main {
 
 
 	public static void main(String[] args) {
-		//TODO: mudar isso
-		System.out.println("Criando a tabela toda vez que executa");
-		factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-		EntityManager em = factory.createEntityManager();
-		try {
-			Query q = em.createQuery("select a from Tab_aluno a");
-			List<Tab_aluno> alunos = q.getResultList();
-			for(Tab_aluno aluno : alunos){
-				System.out.println(aluno);
-			}
-			System.out.println("Size:" + alunos.size());
-		} catch (Exception e) {
-			System.out.println("Deu erro");
-			e.printStackTrace();
-
-		}
+		Menu meuMenu = new Menu();
+		
+		
 		
 		AlunoPK alunoPK = new AlunoPK(2, 23, 32);
 //		Tab_aluno aluno = new Tab_aluno(alunoPK);
