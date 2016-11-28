@@ -84,7 +84,7 @@ public class Menu {
 		Scanner reader = new Scanner(System.in);
 		String no_ies = reader.nextLine();
 		try{
-			String query = "Select count(ies) from Tab_ies ies where ies.no_ies = " +  "'" + no_ies + "'";
+			String query = "Select count(ies) from Tab_aluno a JOIN Tab_ies ies where ies.no_ies = " +  "'" + no_ies + "'";
 			System.out.println(query);
 			Query q = em.createQuery(query);
 			System.out.println("Total de alunos neste IES: "+ (long)q.getSingleResult());
@@ -117,7 +117,7 @@ public class Menu {
 			Query qtotal = em.createQuery(query);
 			
 			query = "Select count(b) from Tab_curso cur JOIN Tab_modalidade_ensino b"
-		+" where b.ds_modalidade_ensino = 'Curso a distancia'";
+		+" where b.ds_modalidade_ensino = 'Curso a distância'";
 			System.out.println(query);
 			Query qdistancia = em.createQuery(query);
 			System.out.println("total = "+ (long)qtotal.getSingleResult());
@@ -144,62 +144,62 @@ public class Menu {
 			System.out.println(query);
 			Query q2 = em.createQuery(query);
 			System.out.println("Número de tecnicos do sexo feminino com o nivel fundamnetal completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			query = "Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
 			System.out.println(query);
 			Query q3 = em.createQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel fundamnetal completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			query = "Select ies.qt_tec_fund_incomp_masc from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'";
 			System.out.println(query);
 			Query q4 = em.createQuery(query);
 			System.out.println("Número de tecnicos do sexo masculino com o nivel fundamnetal incompleto: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q5 = em.createQuery("Select ies.qt_tec_medio_fem from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo feminido com o nivel medio completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q6 = em.createQuery("Select ies.qt_tec_medio_masc from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo masculino com o nivel medio completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q7 = em.createQuery("Select ies.qt_tec_superior_fem from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo feminino com o nivel superior completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q8 = em.createQuery("Select ies.qt_tec_superior_masc from Tab_ies ies "
 					+ "WHERE ies.no_ies = " + "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo masculino com o nivel superior completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			///deixei sem a especializacao
 			Query q9 = em.createQuery("Select ies.qt_tec_mestrado_fem from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +   "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo feminino com o mestrado completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q10 = em.createQuery("Select ies.qt_tec_mestrado_masc from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo masculino com o mestrado completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q11 = em.createQuery("Select ies.qt_tec_doutorado_fem from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo feminino com o doutorado completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			Query q12 = em.createQuery("Select ies.qt_tec_doutorado_masc from Tab_ies ies "
 					+ "WHERE ies.no_ies = " +  "'" + no_ies + "'");
 			System.out.println("Número de tecnicos do sexo masculino com o doutorado completo: "
-					+ q.getSingleResult());
+					+ q.getFirstResult());
 			//
 			
 		} catch (Exception e) {
@@ -217,8 +217,8 @@ public class Menu {
 			System.out.println(query);
 
 			Query q = em.createQuery(query);
-			System.out.println("Numero de tecnicos do sexo feminino com o nivel fundamnetal incompleto: "
-					+ (long)q.getSingleResult());
+			System.out.println("Total gasto com pesquisa pelo ies"
+					+ q.getSingleResult());
 		} catch (Exception e) {
 			System.out.println("Deu erro");
 			e.printStackTrace();
