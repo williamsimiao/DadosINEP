@@ -1,5 +1,6 @@
 package br.unb.cic.bd.dadosINEP.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -50,16 +51,26 @@ public class Tab_ies {
 	private int qt_tec_mestrado_masc;
 	private int qt_tec_doutorado_fem;
 	private int qt_tec_doutorado_masc;
-	private int vl_receita_propria;
-	private int vl_transferencia;
-	private int vl_outra_receita;
-	private int vl_des_pessoal_rem_docente;
-	private int vl_des_pessoal_rem_tecnico;
-	private int vl_des_pessoal_encargo;
-	private int vl_des_custeio;
-	private int vl_des_investimento;
-	private int vl_des_pesquisa;
-	private int vl_des_outras;
+	@Column(columnDefinition = "text")
+	private String vl_receita_propria;
+	@Column(columnDefinition = "text")
+	private String vl_transferencia;
+	@Column(columnDefinition = "text")
+	private String vl_outra_receita;
+	@Column(columnDefinition = "text")
+	private String vl_des_pessoal_rem_docente;
+	@Column(columnDefinition = "text")
+	private String vl_des_pessoal_rem_tecnico;
+	@Column(columnDefinition = "text")
+	private String vl_des_pessoal_encargo;
+	@Column(columnDefinition = "text")
+	private String vl_des_custeio;
+	@Column(columnDefinition = "text")
+	private String vl_des_investimento;
+	@Column(columnDefinition = "money")
+	private String vl_des_pesquisa;
+	@Column(columnDefinition = "text")
+	private String vl_des_outras;
 	
 	public Tab_ies(int co_ies) {
 		super();
