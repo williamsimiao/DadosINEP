@@ -12,6 +12,11 @@ import br.unb.cic.bd.dadosINEP.model.Tab_ies;
 @Embeddable
 public class AlunoPK implements Serializable {
 	
+	public AlunoPK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Column(name = "co_aluno", nullable = false)
 	private int co_aluno;
 	

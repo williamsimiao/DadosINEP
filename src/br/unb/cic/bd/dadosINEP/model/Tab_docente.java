@@ -20,7 +20,7 @@ import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_situacao_docente;
 import lombok.Data;
 
 @Entity
-@Table(name = "docente")
+@Table(name = "tab_docente")
 
 @Data
 public class Tab_docente {
@@ -59,5 +59,10 @@ public class Tab_docente {
 	public Tab_docente(DocentePK docentePK) {
 		super();
 		this.docentePK = docentePK;
+	}
+
+	public Tab_docente() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 }

@@ -10,6 +10,10 @@ import lombok.Data;
 @Entity
 @Table (name = "tab_nivel_academico")
 public class Tab_nivel_academico {
+	public Tab_nivel_academico() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	private int co_nivel_academico;
 	private String ds_nivel_academico;

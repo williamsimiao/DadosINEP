@@ -10,6 +10,10 @@ import lombok.Data;
 @Entity
 @Table (name = "tab_mantenedora")
 public class Tab_mantenedora {
+	public Tab_mantenedora() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	private int co_mantenedora;
 	private String no_mantenedora;

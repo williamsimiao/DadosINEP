@@ -15,10 +15,15 @@ import lombok.Data;
 import lombok.ToString;
 
 @Entity
-@Table(name = "ies")
+@Table(name = "tab_ies")
 
 @Data
 public class Tab_ies {
+	public Tab_ies() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int co_ies;
 	private String no_ies;

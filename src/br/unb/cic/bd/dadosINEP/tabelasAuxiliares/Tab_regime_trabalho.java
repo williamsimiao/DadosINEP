@@ -10,6 +10,11 @@ import lombok.Data;
 @Entity
 @Table (name = "tab_regime_trabalho")
 public class Tab_regime_trabalho {
+	public Tab_regime_trabalho() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int co_regime_trabalho;
 	private String ds_regime_trabalho;

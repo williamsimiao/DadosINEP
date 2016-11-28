@@ -19,7 +19,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "aluno")
+@Table(name = "tab_aluno")
 public class Tab_aluno {
 	@EmbeddedId
 	//as tres chaves PKs estao nessa classe
@@ -77,6 +77,10 @@ public class Tab_aluno {
 	public Tab_aluno(AlunoPK alunoPK) {
 		super();
 		this.alunoPK = alunoPK;
+	}
+	
+	public Tab_aluno() {
+		super();
 	}
 	
 	

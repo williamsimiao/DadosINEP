@@ -11,10 +11,15 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "local_oferta")
+@Table(name = "tab_local_oferta")
 
 @Data
 public class Tab_local_oferta {
+	public Tab_local_oferta() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int co_local_oferta_ies;
 	private String no_local_oferta;

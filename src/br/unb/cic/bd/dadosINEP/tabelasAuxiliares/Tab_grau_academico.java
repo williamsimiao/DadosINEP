@@ -10,6 +10,10 @@ import lombok.Data;
 @Entity
 @Table (name = "tab_grau_academico")
 public class Tab_grau_academico {
+	public Tab_grau_academico() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	@Id
 	private int co_grau_academico;
 	private String ds_grau_academico;

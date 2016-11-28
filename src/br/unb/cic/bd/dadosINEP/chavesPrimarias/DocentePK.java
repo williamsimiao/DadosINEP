@@ -11,6 +11,11 @@ import br.unb.cic.bd.dadosINEP.model.Tab_ies;
 public class DocentePK implements Serializable {
 	
 	
+	public DocentePK() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Column(name = "co_docente", nullable = false)
 	private int co_docente;
 	

@@ -10,6 +10,11 @@ import lombok.Data;
 @Entity
 @Table(name = "tab_categoria_administrativa")
 public class Tab_categoria_administrativa {
+	public Tab_categoria_administrativa() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int co_categoria_administrativa;
 	private String ds_categoria_administrativa;

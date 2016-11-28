@@ -10,6 +10,11 @@ import lombok.Data;
 @Entity
 @Table (name = "tab_cor_raca")
 public class Tab_cor_raca {
+	public Tab_cor_raca() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int co_cor_raca;
 	private String ds_cor_raca;

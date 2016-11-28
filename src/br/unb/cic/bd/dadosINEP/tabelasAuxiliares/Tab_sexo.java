@@ -10,6 +10,11 @@ import lombok.Data;
 @Entity
 @Table (name = "tab_sexo")
 public class Tab_sexo {
+	public Tab_sexo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int in_sexo;
 	private String ds_sexo;

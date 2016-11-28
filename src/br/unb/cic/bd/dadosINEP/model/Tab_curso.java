@@ -13,10 +13,16 @@ import br.unb.cic.bd.dadosINEP.tabelasAuxiliares.Tab_nivel_academico;
 import lombok.Data;
 
 @Entity
-@Table(name = "curso")
+@Table(name = "tab_curso")
 
 @Data
 public class Tab_curso {
+	
+	public Tab_curso() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Id
 	private int co_curso;
 	@ManyToOne
