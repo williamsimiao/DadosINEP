@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import br.unb.cic.bd.dadosINEP.model.Tab_aluno;
+import br.unb.cic.bd.dadosINEP.model.Tab_ies;
 
 public class Menu {
 	private static final String PERSISTENCE_UNIT_NAME = "INEP";
@@ -59,12 +60,13 @@ public class Menu {
 		//Exemplo
 		
 		try {
-			Query q = em.createQuery("select a from Tab_aluno a");
-			List<Tab_aluno> alunos = q.getResultList();
-			for(Tab_aluno aluno : alunos){
-				System.out.println(aluno);
+			Query q = em.createQuery("Select UPPER(ies.no_ies) from Tab_ies ies");
+			q.setMaxResults(100);
+			List<Tab_ies> iezes = q.getResultList();
+			for(Tab_ies ies : iezes){
+				System.out.println(ies);
 			}
-			System.out.println("Size:" + alunos.size());
+			System.out.println("Size:" + iezes.size());
 		} catch (Exception e) {
 			System.out.println("Deu erro");
 			e.printStackTrace();
